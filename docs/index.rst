@@ -1,5 +1,5 @@
 Welcome to jaraco.structures documentation!
-========================================
+===========================================
 
 .. automodule:: jaraco.structures
     :members:
