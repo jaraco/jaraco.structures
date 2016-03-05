@@ -1,6 +1,12 @@
 Welcome to jaraco.structures documentation!
 ===========================================
 
+.. toctree::
+   :maxdepth: 1
+
+   history
+
+
 .. automodule:: jaraco.structures
     :members:
     :undoc-members:

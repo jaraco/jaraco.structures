@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import hgtools.managers
-
-# use hgtools to get the version
-hg_mgr = hgtools.managers.RepoManager.get_first_valid_manager()
+import setuptools_scm
 
 extensions = [
     'sphinx.ext.autodoc',
@@ -12,10 +9,10 @@ extensions = [
 
 # General information about the project.
 project = 'jaraco.structures'
-copyright = '2015 Jason R. Coombs'
+copyright = '2015-2016 Jason R. Coombs'
 
 # The short X.Y version.
-version = hg_mgr.get_current_version()
+version = setuptools_scm.get_version(root='..', relative_to=__file__)
 # The full version, including alpha/beta/rc tags.
 release = version
 
