@@ -1,3 +1,9 @@
+1.1
+===
+
+``binary.Binary`` now allows subclasses to have their own
+methods.
+
 1.0
 ===
 
