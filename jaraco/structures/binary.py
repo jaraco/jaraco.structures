@@ -1,5 +1,6 @@
 from __future__ import absolute_import, unicode_literals
 
+import numbers
 from functools import reduce
 
 
@@ -127,16 +128,19 @@ class BitMask(type):
 	If the instance defines methods, they won't be wrapped in
 	properties.
 
-	>>> ns['get_value'] = lambda self: 'some value'
+	>>> ns['get_value'] = classmethod(lambda cls: 'some value')
+	>>> ns['prop'] = property(lambda self: 'a property')
 	>>> MyBits = BitMask(str('MyBits'), (int,), ns)
 
 	>>> MyBits(3).get_value()
 	'some value'
+	>>> MyBits(3).prop
+	'a property'
 	"""
 
 	def __new__(cls, name, bases, attrs):
 		def make_property(name, value):
-			if name.startswith('_') or callable(value):
+			if name.startswith('_') or not isinstance(value, numbers.Number):
 				return value
 			return property(lambda self, value=value: bool(self & value))
 

@@ -1,3 +1,8 @@
+1.1.1
+=====
+
+Even more aggressive support for methods on ``binary.Binary``
+
 1.1
 ===
 
