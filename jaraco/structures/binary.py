@@ -1,7 +1,5 @@
 from __future__ import absolute_import, unicode_literals
 
-import six
-
 from functools import reduce
 
 
@@ -138,7 +136,7 @@ class BitMask(type):
 
 	def __new__(cls, name, bases, attrs):
 		def make_property(name, value):
-			if name.startswith('_') or six.callable(value):
+			if name.startswith('_') or callable(value):
 				return value
 			return property(lambda self, value=value: bool(self & value))
 
