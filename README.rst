@@ -3,7 +3,8 @@
 
 .. image:: https://img.shields.io/pypi/pyversions/jaraco.structures.svg
 
-.. image:: https://img.shields.io/pypi/dm/jaraco.structures.svg
+.. image:: https://img.shields.io/travis/jaraco/skeleton/master.svg
+   :target: https://travis-ci.org/jaraco/skeleton
 
-.. image:: https://img.shields.io/travis/jaraco/jaraco.structures/master.svg
-   :target: http://travis-ci.org/jaraco/jaraco.structures
+.. image:: https://readthedocs.org/projects/jaracostructures/badge/?version=latest
+   :target: https://jaracostructures.readthedocs.io/en/latest/?badge=latest
