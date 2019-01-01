@@ -12,7 +12,8 @@ def get_bit_values(number, size=32):
 	True
 
 	>>> get_bit_values(0xDEADBEEF)
-	[1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1]
+	[1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, \
+1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1]
 
 	You may override the default word size of 32-bits to match your actual
 	application.
@@ -47,7 +48,8 @@ def coalesce(bits):
 	>>> coalesce([1,0,1])
 	5
 	"""
-	operation = lambda a, b: (a << 1 | b)
+	def operation(a, b):
+		return a << 1 | b
 	return reduce(operation, bits)
 
 
