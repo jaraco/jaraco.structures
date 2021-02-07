@@ -1,5 +1,3 @@
-from __future__ import absolute_import, unicode_literals
-
 import numbers
 from functools import reduce
 
@@ -55,7 +53,7 @@ def coalesce(bits):
     return reduce(operation, bits)
 
 
-class Flags(object):
+class Flags:
     """
     Subclasses should define _names, a list of flag names beginning
     with the least-significant bit.
@@ -111,17 +109,12 @@ class BitMask(type):
     A metaclass to create a bitmask with attributes. Subclass an int and
     set this as the metaclass to use.
 
-    Here's how to create such a class on Python 3:
+    Construct such a class:
 
-    class MyBits(int, metaclass=BitMask):
-            a = 0x1
-            b = 0x4
-            c = 0x3
-
-    For testing purposes, construct explicitly to support Python 2
-
-    >>> ns = dict(a=0x1, b=0x4, c=0x3)
-    >>> MyBits = BitMask(str('MyBits'), (int,), ns)
+    >>> class MyBits(int, metaclass=BitMask):
+    ...     a = 0x1
+    ...     b = 0x4
+    ...     c = 0x3
 
     >>> b1 = MyBits(3)
     >>> b1.a, b1.b, b1.c
@@ -133,10 +126,18 @@ class BitMask(type):
     If the instance defines methods, they won't be wrapped in
     properties.
 
-    >>> ns['get_value'] = classmethod(lambda cls: 'some value')
-    >>> ns['prop'] = property(lambda self: 'a property')
-    >>> MyBits = BitMask(str('MyBits'), (int,), ns)
-
+    >>> class MyBits(int, metaclass=BitMask):
+    ...     a = 0x1
+    ...     b = 0x4
+    ...     c = 0x3
+    ...
+    ...     @classmethod
+    ...     def get_value(cls):
+    ...         return 'some value'
+    ...
+    ...     @property
+    ...     def prop(cls):
+    ...         return 'a property'
     >>> MyBits(3).get_value()
     'some value'
     >>> MyBits(3).prop
