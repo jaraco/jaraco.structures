@@ -150,7 +150,5 @@ class BitMask(type):
                 return value
             return property(lambda self, value=value: bool(self & value))
 
-        newattrs = dict(
-            (name, make_property(name, value)) for name, value in attrs.items()
-        )
+        newattrs = {name: make_property(name, value) for name, value in attrs.items()}
         return type.__new__(cls, name, bases, newattrs)
