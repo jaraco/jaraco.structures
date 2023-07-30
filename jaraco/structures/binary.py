@@ -22,7 +22,7 @@ def get_bit_values(number, size=32):
     >>> get_bit_values(0x3, 4)
     [0, 0, 1, 1]
     """
-    number += 2 ** size
+    number += 2**size
     return list(map(int, bin(number)[-size:]))
 
 
